@@ -1,0 +1,25 @@
+const mongoose = require('mongoose')
+const userSchema = new mongoose.Schema({
+
+    name:{
+   type:String,
+   required: true
+
+    },
+    
+    department:{
+        type:String,
+        enum:["Backend", "Frontend"],
+        required: true
+     
+         },
+         
+    photos:{
+        type:Array,
+        required: true
+     
+         }
+},{timestamps:true})
+
+const user = mongoose.model('user',userSchema)
+module.exports = user
